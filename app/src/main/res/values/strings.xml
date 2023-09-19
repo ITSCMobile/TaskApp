@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TasksMaster</string>
+    <string name="dialog_delete">Xотите удалить эту задачу?</string>
+    <string name="delete">Удалить</string>
+    <string name="cansel">Отмена</string>
+    <string name="theme">Тема</string>
+    <string name="language">Язык</string>
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+    <string name="settings">Настройки</string>
+
+</resources>
