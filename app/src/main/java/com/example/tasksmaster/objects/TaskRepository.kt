@@ -8,9 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class TaskRepository(private val taskDao: TaskDao) {
+class TaskRepository(private val taskDao: TaskDao, private val stateDao: StateDao) {
     val allTasks: LiveData<List<Task>> = taskDao.getAllTasks()
-    val searchResults = MutableLiveData<List<Task>>()
+    val searchResults = MutableLiveData<List<State>>()
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
@@ -19,10 +19,20 @@ class TaskRepository(private val taskDao: TaskDao) {
             taskDao.insertTask(newTask)
         }
     }
+    fun insertState(newState: State) {
+        coroutineScope.launch(Dispatchers.IO) {
+            stateDao.insertState(newState)
+        }
+    }
 
     fun deleteTask(task: Task) {
         coroutineScope.launch(Dispatchers.IO) {
             taskDao.deleteTask(task)
+        }
+    }
+    fun deleteState(state: State) {
+        coroutineScope.launch(Dispatchers.IO) {
+            stateDao.deleteState(state)
         }
     }
 
@@ -31,15 +41,18 @@ class TaskRepository(private val taskDao: TaskDao) {
             taskDao.updateTask(task)
         }
     }
-
-    fun findTask(name: String) {
-        coroutineScope.launch(Dispatchers.Main) {
-            searchResults.value = asyncFind(name).await()
+    fun updateState(state: State){
+        coroutineScope.launch(Dispatchers.IO) {
+            stateDao.updateState(state)
         }
     }
 
-    private fun asyncFind(name: String): Deferred<List<Task>?> =
-        coroutineScope.async(Dispatchers.IO) {
-            return@async taskDao.findTask(name)
+    fun findState(id: Int): List<State> {
+        var ret: List<State> = List(1) { State() }
+        coroutineScope.launch(Dispatchers.IO) {
+            ret = stateDao.findState(id)
         }
+        return ret
+    }
+
 }

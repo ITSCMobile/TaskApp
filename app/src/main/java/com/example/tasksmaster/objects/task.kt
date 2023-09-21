@@ -28,3 +28,23 @@ class Task {
         this.delete = false
     }
 }
+
+@Entity(tableName = "states")
+class State {
+    @PrimaryKey
+    @ColumnInfo(name = "stateId")
+    var id: Int = 0
+
+    @ColumnInfo(name = "stateName")
+    var stateName: String = ""
+
+    @ColumnInfo(name = "stat")
+    var state: Boolean = false
+    constructor()
+
+    constructor(id: Int, stateName: String, state: Boolean) {
+        this.id = id
+        this.stateName = stateName
+        this.state = state
+    }
+}

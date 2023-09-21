@@ -24,5 +24,19 @@ interface TaskDao {
 
     @Query("SELECT * FROM tasks")
     fun getAllTasks(): LiveData<List<Task>>
+}
 
+@Dao
+interface StateDao {
+    @Insert
+    fun insertState(sate: State)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateState(sate: State)
+
+    @Query("SELECT * FROM states WHERE stateId = :id")
+    fun findState(id: Int): List<State>
+
+    @Delete
+    fun deleteState(sate: State)
 }
