@@ -1,8 +1,7 @@
 package com.example.tasksmaster
 
+import android.app.Activity
 import android.app.Application
-import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
@@ -17,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
@@ -28,9 +28,7 @@ import com.example.tasksmaster.objects.Routes
 import com.example.tasksmaster.objects.Task
 import com.example.tasksmaster.screens.MainScreenSetup
 import com.example.tasksmaster.screens.TextScreen
-import com.example.tasksmaster.ui.theme.TasksMasterTheme
 import com.example.tasksmaster.view.MainViewModel
-import java.util.Locale
 
 
 class MainActivity : ComponentActivity() {
@@ -38,7 +36,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TasksMasterTheme {
+/*            TasksMasterTheme {*/
                 Surface {
                     window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
@@ -57,6 +55,7 @@ class MainActivity : ComponentActivity() {
                         val scope = rememberCoroutineScope()
 
                         var item = Task(
+                            taskTitle = "",
                             taskName = "",
                             taskDate = ""
                         )
@@ -64,6 +63,11 @@ class MainActivity : ComponentActivity() {
                         var stateHelper by remember {
                             mutableStateOf(false)
                         }
+
+                        val view = LocalView.current
+                        val window = (view.context as Activity).window
+
+
 
                         NavHost(
                             navController = navController,
@@ -84,18 +88,17 @@ class MainActivity : ComponentActivity() {
                                     }
                                 )
                             }
-
                             composable(Routes.TEXT_SCREEN) {
                                 TextScreen(
                                     viewModel = viewModel,
                                     task = item,
                                     navController = navController,
-                                    stateHelper = stateHelper
+                                    stateHelper = stateHelper,
                                 )
                             }
                         }
                     }
-                }
+/*                }*/
             }
         }
     }

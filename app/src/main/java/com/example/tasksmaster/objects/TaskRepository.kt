@@ -8,9 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class TaskRepository(private val taskDao: TaskDao, private val stateDao: StateDao) {
+class TaskRepository(private val taskDao: TaskDao/*, private val stateDao: StateDao*/) {
     val allTasks: LiveData<List<Task>> = taskDao.getAllTasks()
-    val searchResults = MutableLiveData<List<State>>()
+/*    val searchResults = MutableLiveData<List<State>>()*/
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
@@ -19,29 +19,30 @@ class TaskRepository(private val taskDao: TaskDao, private val stateDao: StateDa
             taskDao.insertTask(newTask)
         }
     }
-    fun insertState(newState: State) {
+/*    fun insertState(newState: State) {
         coroutineScope.launch(Dispatchers.IO) {
             stateDao.insertState(newState)
         }
-    }
+    }*/
 
     fun deleteTask(task: Task) {
         coroutineScope.launch(Dispatchers.IO) {
             taskDao.deleteTask(task)
         }
     }
-    fun deleteState(state: State) {
+/*    fun deleteState(state: State) {
         coroutineScope.launch(Dispatchers.IO) {
             stateDao.deleteState(state)
         }
-    }
+    }*/
 
     fun updateTask(task: Task){
         coroutineScope.launch(Dispatchers.IO) {
             taskDao.updateTask(task)
         }
     }
-    fun updateState(state: State){
+
+/*    fun updateState(state: State){
         coroutineScope.launch(Dispatchers.IO) {
             stateDao.updateState(state)
         }
@@ -53,6 +54,5 @@ class TaskRepository(private val taskDao: TaskDao, private val stateDao: StateDa
             ret = stateDao.findState(id)
         }
         return ret
-    }
-
+    }*/
 }

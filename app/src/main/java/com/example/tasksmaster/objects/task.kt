@@ -1,5 +1,7 @@
 package com.example.tasksmaster.objects
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,6 +12,9 @@ class Task {
     @ColumnInfo(name = "taskId")
     var id: Int = 0
 
+    @ColumnInfo(name = "taskTitle")
+    var titleTask: String = ""
+
     @ColumnInfo(name = "taskName")
     var nameTask: String = ""
 
@@ -18,17 +23,18 @@ class Task {
 
     var state: Boolean = false
     var delete: Boolean = false
+    var color: Int = Color.White.toArgb()
 
     constructor()
 
-    constructor(taskName: String, taskDate: String) {
+    constructor(taskTitle: String, taskName: String, taskDate: String) {
+        this.titleTask = taskTitle
         this.nameTask = taskName
         this.dateTask = taskDate
-        this.state = false
-        this.delete = false
     }
 }
 
+/*
 @Entity(tableName = "states")
 class State {
     @PrimaryKey
@@ -47,4 +53,4 @@ class State {
         this.stateName = stateName
         this.state = state
     }
-}
+}*/
