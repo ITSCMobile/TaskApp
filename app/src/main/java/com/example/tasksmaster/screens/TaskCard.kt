@@ -107,6 +107,7 @@ fun MainScreenSetup(
                 drawerShape = RoundedCornerShape(20.dp),
                 content = {
                     Scaffold(
+                        containerColor = Color.White,
                         topBar = {
                             Text(
                                 text = stringResource(id = R.string.settings),
@@ -120,7 +121,7 @@ fun MainScreenSetup(
                         bottomBar = {
                             Text(
                                 text = "by L3on1kL\n" +
-                                        "beta v 0.2.1",
+                                        "beta v 0.2.2",
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(bottom =  5.dp)
@@ -269,9 +270,9 @@ fun MainScreenSetup(
                                     },
                                     colors = SwitchDefaults.colors(
                                         uncheckedThumbColor = Category3,
-                                        uncheckedTrackColor = Color.White,
+                                        uncheckedTrackColor = Color.Transparent,
                                         checkedThumbColor = Category3,
-                                        checkedTrackColor = Color.White,
+                                        checkedTrackColor = Color.Transparent,
                                         uncheckedBorderColor = Color.Transparent,
                                         checkedBorderColor = Color.Transparent
                                     )

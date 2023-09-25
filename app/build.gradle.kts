@@ -9,7 +9,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.tasksmaster"
+        applicationId = "com.boss.tasksmaster"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
