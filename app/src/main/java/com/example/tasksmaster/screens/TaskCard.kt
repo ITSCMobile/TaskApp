@@ -104,7 +104,12 @@ fun MainScreenSetup(
         drawerContent = {
             ModalDrawerSheet(
                 drawerContainerColor = Color.White,
-                drawerShape = RoundedCornerShape(20.dp),
+                drawerShape = RoundedCornerShape(
+                    topStart = 0.dp,
+                    topEnd = 20.dp,
+                    bottomStart = 0.dp,
+                    bottomEnd = 20.dp
+                ),
                 content = {
                     Scaffold(
                         containerColor = Color.White,
@@ -121,7 +126,7 @@ fun MainScreenSetup(
                         bottomBar = {
                             Text(
                                 text = "by L3on1kL\n" +
-                                        "beta v 0.2.2",
+                                        "beta v.0.3.0",
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(bottom =  5.dp)
@@ -269,7 +274,7 @@ fun MainScreenSetup(
                                         onStateHelper(it)
                                     },
                                     colors = SwitchDefaults.colors(
-                                        uncheckedThumbColor = Category3,
+                                        uncheckedThumbColor = Color.Gray,
                                         uncheckedTrackColor = Color.Transparent,
                                         checkedThumbColor = Category3,
                                         checkedTrackColor = Color.Transparent,
