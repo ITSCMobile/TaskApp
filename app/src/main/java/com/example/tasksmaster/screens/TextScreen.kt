@@ -46,6 +46,7 @@ import com.example.tasksmaster.ui.theme.Category3
 import com.example.tasksmaster.view.MainViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
+@Suppress("DEPRECATION")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextScreen(
@@ -57,7 +58,7 @@ fun TextScreen(
     var titleScreen by remember {
         mutableStateOf(task.titleTask)
     }
-    val defoltTitleScreen = stringResource(id = R.string.newTaskText)
+    val defaultTitleScreen = stringResource(id = R.string.newTaskText)
     var textScreen by remember {
         mutableStateOf(task.nameTask)
     }
@@ -91,7 +92,7 @@ fun TextScreen(
                             singleLine = true,
                             value = titleScreen,
                             onValueChange = { text ->
-                                if (text.length <= maxChar){
+                                if (text.length <= maxChar) {
                                     titleScreen = text
                                     save = false
                                 }
@@ -112,9 +113,9 @@ fun TextScreen(
                             onClick = {
                                 if ((textScreen != task.nameTask) or
                                     (titleScreen != task.titleTask)
-                                    ) {
-                                    if (titleScreen.isBlank()){
-                                        titleScreen = defoltTitleScreen
+                                ) {
+                                    if (titleScreen.isBlank()) {
+                                        titleScreen = defaultTitleScreen
                                     }
                                     task.nameTask = textScreen
                                     viewModel.updateTask(task)
@@ -130,7 +131,7 @@ fun TextScreen(
                                 tint = Color.Black
                             )
                         }
-                        if (stateHelper){
+                        if (stateHelper) {
                             Text(
                                 text = stringResource(id = R.string.back),
                                 fontSize = 12.sp,
@@ -143,14 +144,14 @@ fun TextScreen(
                 actions = {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally
-                    ){
+                    ) {
                         IconButton(
                             enabled = !save,
                             onClick = {
                                 save = true
                                 task.nameTask = textScreen
-                                if (titleScreen.isBlank()){
-                                    titleScreen = defoltTitleScreen
+                                if (titleScreen.isBlank()) {
+                                    titleScreen = defaultTitleScreen
                                 }
                                 task.titleTask = titleScreen
                                 viewModel.updateTask(task)
@@ -162,7 +163,7 @@ fun TextScreen(
                                 tint = if (save) Color.White else Color.Black
                             )
                         }
-                        if (stateHelper){
+                        if (stateHelper) {
                             Text(
                                 text = stringResource(id = R.string.save),
                                 fontSize = 12.sp,
@@ -192,11 +193,12 @@ fun TextScreen(
                 Row(
                     horizontalArrangement = Arrangement.Center,
                     modifier = Modifier.fillMaxWidth()
-                ){
+                ) {
                     SideEffect {
                         systemUiController.setStatusBarColor(
                             color = Color.Transparent,
-                            darkIcons = true)
+                            darkIcons = true
+                        )
                     }
                     Icon(
                         imageVector = ImageVector.vectorResource(

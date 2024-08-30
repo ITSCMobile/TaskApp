@@ -80,7 +80,8 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@Suppress("DEPRECATION")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreenSetup(
     viewModel: MainViewModel,
@@ -89,13 +90,13 @@ fun MainScreenSetup(
     stateHelper: Boolean,
     onClick: (Task) -> Unit,
     onStateHelper: (Boolean) -> Unit
-    ) {
+) {
 
 
     val allTasks by viewModel.allTasks.observeAsState(listOf())
-/*    var stateTheme by remember {
-        mutableStateOf(true)
-    }*/
+    /*    var stateTheme by remember {
+            mutableStateOf(true)
+        }*/
 
     val systemUiController = rememberSystemUiController()
 
@@ -129,7 +130,7 @@ fun MainScreenSetup(
                                         "beta v.0.3.0",
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(bottom =  5.dp)
+                                    .padding(bottom = 5.dp)
                                     .alpha(0.4f),
                                 fontSize = 12.sp,
                                 textAlign = TextAlign.Center,
@@ -145,7 +146,7 @@ fun MainScreenSetup(
                                     bottom = 0.dp,
                                     start = 15.dp,
                                     end = 15.dp
-                                    ),
+                                ),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             //Смена темы хз вообще))
@@ -330,7 +331,7 @@ fun MainScreenSetup(
                                     tint = Color.White
                                 )
                             }
-                            if (stateHelper){
+                            if (stateHelper) {
                                 Text(
                                     text = stringResource(id = R.string.settings),
                                     fontSize = 12.sp,
@@ -365,7 +366,7 @@ fun MainScreenSetup(
                                     tint = Color.White
                                 )
                             }
-                            if (stateHelper){
+                            if (stateHelper) {
                                 Text(
                                     text = stringResource(id = R.string.newTask),
                                     fontSize = 12.sp,
@@ -382,7 +383,8 @@ fun MainScreenSetup(
             SideEffect {
                 systemUiController.setStatusBarColor(
                     color = PurpleMain,
-                    darkIcons = false)
+                    darkIcons = false
+                )
             }
             LazyColumn(
                 modifier = Modifier
@@ -404,7 +406,7 @@ fun MainScreenSetup(
                         viewModel = viewModel,
                         onClick = { task -> onClick(task) }
                     )
-                    if (item.delete){
+                    if (item.delete) {
                         Dialog(
                             task = item,
                             viewModel = viewModel
@@ -472,12 +474,13 @@ fun Dialog(
 }
 
 @OptIn(ExperimentalFoundationApi::class)
-@Composable fun TaskCard(
+@Composable
+fun TaskCard(
     task: Task,
     //stateHelper: Boolean,
     viewModel: MainViewModel,
     onClick: (Task) -> Unit
-){
+) {
     var colorCategory by remember {
         mutableIntStateOf(task.color)
     }
@@ -562,7 +565,7 @@ fun Dialog(
                             var category by remember { mutableStateOf(false) }
                             DropdownMenuItem(
                                 text = {
-                                    Row{
+                                    Row {
                                         Icon(
                                             imageVector = ImageVector.vectorResource(
                                                 id = R.drawable.baseline_circle_24
@@ -647,7 +650,7 @@ fun Dialog(
                         }
                     }
                 }
-                if (task.state){
+                if (task.state) {
                     Text(
                         text = task.nameTask,
                         modifier = Modifier
