@@ -36,6 +36,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+@Suppress("DEPRECATION")
 @Composable
 fun TasksMasterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

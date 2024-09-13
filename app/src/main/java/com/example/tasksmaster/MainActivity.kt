@@ -27,7 +27,6 @@ import com.example.tasksmaster.screens.MainScreenSetup
 import com.example.tasksmaster.screens.TextScreen
 import com.example.tasksmaster.view.MainViewModel
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
