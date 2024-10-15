@@ -127,7 +127,7 @@ fun MainScreenSetup(
                         bottomBar = {
                             Text(
                                 text = "by L3on1kL\n" +
-                                        "beta v.0.3.0",
+                                        "beta v.0.3.2",
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(bottom = 5.dp)
