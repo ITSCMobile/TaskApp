@@ -17,7 +17,6 @@ agp = "8.7.1"
 ##⬆= "8.8.0-alpha05"
 ##⬆= "8.8.0-alpha06"
 fragmentKtx = "1.8.4"
-javaClient = "9.3.0"
 kotlin = "2.0.21"
 ##  ⬆ = "2.1.0-Beta1"
 ##  ⬆ = "2.1.0-Beta2"
@@ -86,7 +85,6 @@ androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", v
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 firebase-inappmessaging-ktx = { module = "com.google.firebase:firebase-inappmessaging-ktx", version.ref = "firebaseInappmessagingKtx" }
-java-client = { module = "io.appium:java-client", version.ref = "javaClient" }
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }

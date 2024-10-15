@@ -85,6 +85,4 @@ dependencies {
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
-
-    implementation(libs.java.client)
 }
