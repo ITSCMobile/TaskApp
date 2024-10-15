@@ -1,11 +1,11 @@
-package com.example.tasksmaster.view
+package com.example.tasksmaster.presentation.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.tasksmaster.objects.Task
-import com.example.tasksmaster.objects.TaskRepository
-import com.example.tasksmaster.objects.TaskRoomDatabase
+import com.example.tasksmaster.data.entities.Task
+import com.example.tasksmaster.data.repositories.TaskRepository
+import com.example.tasksmaster.data.database.TaskRoomDatabase
 
 class MainViewModel(application: Application) : ViewModel() {
     val allTasks: LiveData<List<Task>>

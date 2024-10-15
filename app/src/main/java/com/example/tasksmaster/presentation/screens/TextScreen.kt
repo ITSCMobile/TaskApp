@@ -1,4 +1,4 @@
-package com.example.tasksmaster.screens
+package com.example.tasksmaster.presentation.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,12 +38,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.tasksmaster.R
-import com.example.tasksmaster.objects.Task
-import com.example.tasksmaster.ui.theme.BlueMain
-import com.example.tasksmaster.ui.theme.Category1
-import com.example.tasksmaster.ui.theme.Category2
-import com.example.tasksmaster.ui.theme.Category3
-import com.example.tasksmaster.view.MainViewModel
+import com.example.tasksmaster.data.entities.Task
+import com.example.tasksmaster.presentation.ui.theme.BlueMain
+import com.example.tasksmaster.presentation.ui.theme.Category1
+import com.example.tasksmaster.presentation.ui.theme.Category2
+import com.example.tasksmaster.presentation.ui.theme.Category3
+import com.example.tasksmaster.presentation.viewmodels.MainViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Suppress("DEPRECATION")

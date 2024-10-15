@@ -1,4 +1,4 @@
-package com.example.tasksmaster
+package com.example.tasksmaster.presentation
 
 import android.app.Application
 import android.os.Bundle
@@ -21,11 +21,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.tasksmaster.objects.Routes
-import com.example.tasksmaster.objects.Task
-import com.example.tasksmaster.screens.MainScreenSetup
-import com.example.tasksmaster.screens.TextScreen
-import com.example.tasksmaster.view.MainViewModel
+import com.example.tasksmaster.presentation.navigation.Routes
+import com.example.tasksmaster.data.entities.Task
+import com.example.tasksmaster.presentation.screens.MainScreen
+import com.example.tasksmaster.presentation.screens.TextScreen
+import com.example.tasksmaster.presentation.viewmodels.MainViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Routes.MAIN_SCREEN
                     ) {
                         composable(Routes.MAIN_SCREEN) {
-                            MainScreenSetup(
+                            MainScreen(
                                 viewModel = viewModel,
                                 drawerState = drawerState,
                                 scope = scope,
