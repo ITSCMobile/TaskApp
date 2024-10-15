@@ -12,13 +12,13 @@ import com.example.tasksmaster.data.entities.Task
 @Dao
 interface TaskDao {
     @Insert
-    fun insertTask(task: Task)
+    suspend fun insertTask(task: Task)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateTask(task: Task)
 
     @Delete
-    fun deleteTask(task: Task)
+    suspend fun deleteTask(task: Task)
 
     @Query("SELECT * FROM tasks")
     fun getAllTasks(): LiveData<List<Task>>

@@ -131,8 +131,8 @@ fun MainScreen(
                                 )
                                 Switch(
                                     checked = stateHelper,
-                                    onCheckedChange = {
-                                        onStateHelper(it)
+                                    onCheckedChange = { help ->
+                                        onStateHelper(help)
                                     },
                                     colors = SwitchDefaults.colors(
                                         uncheckedThumbColor = Color.Gray,
@@ -213,10 +213,11 @@ fun MainScreen(
                                             DateTimeFormatter.ofPattern("dd MMM yyyy")
                                         )
                                     val task = Task(
-                                        taskTitle = newTaskText,
-                                        taskName = "",
-                                        taskDate = currDate
+                                        titleTask = newTaskText,
+                                        nameTask = "",
+                                        dateTask = currDate
                                     )
+
                                     viewModel.insertTask(task)
                                 }
                             ) {

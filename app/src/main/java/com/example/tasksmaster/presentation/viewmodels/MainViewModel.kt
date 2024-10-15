@@ -1,33 +1,24 @@
 package com.example.tasksmaster.presentation.viewmodels
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.tasksmaster.data.database.TaskRoomDatabase
+import androidx.lifecycle.viewModelScope
 import com.example.tasksmaster.data.entities.Task
-import com.example.tasksmaster.data.repositories.TaskRepository
+import com.example.tasksmaster.domain.repository.TaskRepository
+import kotlinx.coroutines.launch
 
-class MainViewModel(application: Application) : ViewModel() {
-    val allTasks: LiveData<List<Task>>
-    private val repository: TaskRepository
-
-    init {
-        val taskDb = TaskRoomDatabase.getInstance(application)
-        val taskDao = taskDb.taskDao()
-
-        repository = TaskRepository(taskDao)
-        allTasks = repository.allTasks
-    }
+class MainViewModel(private val repository: TaskRepository) : ViewModel() {
+    val allTasks: LiveData<List<Task>> = repository.getAllTasks()
 
     fun insertTask(task: Task) {
-        repository.insertTask(task)
+        viewModelScope.launch { repository.insertTask(task) }
     }
 
     fun updateTask(task: Task) {
-        repository.updateTask(task)
+        viewModelScope.launch { repository.updateTask(task) }
     }
 
     fun deleteTask(task: Task) {
-        repository.deleteTask(task)
+        viewModelScope.launch { repository.deleteTask(task) }
     }
 }
