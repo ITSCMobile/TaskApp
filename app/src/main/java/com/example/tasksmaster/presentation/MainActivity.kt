@@ -21,8 +21,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.tasksmaster.presentation.navigation.Routes
 import com.example.tasksmaster.data.entities.Task
+import com.example.tasksmaster.presentation.navigation.Routes
 import com.example.tasksmaster.presentation.screens.MainScreen
 import com.example.tasksmaster.presentation.screens.TextScreen
 import com.example.tasksmaster.presentation.viewmodels.MainViewModel
