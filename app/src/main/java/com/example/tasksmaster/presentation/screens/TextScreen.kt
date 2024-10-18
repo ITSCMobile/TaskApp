@@ -153,6 +153,8 @@ fun TextScreen(
                             enabled = !save,
                             onClick = {
                                 save = true
+
+
                                 task.nameTask = textScreen
                                 if (titleScreen.isBlank()) {
                                     titleScreen = defaultTitleScreen
@@ -161,6 +163,7 @@ fun TextScreen(
                                 viewModel.updateTask(task)
                             }
                         ) {
+
                             Icon(
                                 imageVector = ImageVector.vectorResource(R.drawable.outline_save_24),
                                 contentDescription = "Save",
@@ -174,6 +177,7 @@ fun TextScreen(
                                 modifier = Modifier.offset(y = (-10).dp),
                                 color = if (save) Color.White else Color.Black
                             )
+
                         }
                     }
 

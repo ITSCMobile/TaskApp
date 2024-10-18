@@ -74,6 +74,7 @@ fun MainScreen(
         drawerContent = {
             ModalDrawerSheet(
                 drawerContainerColor = Color.White,
+
                 drawerShape = RoundedCornerShape(
                     topStart = 0.dp,
                     topEnd = 20.dp,
@@ -93,6 +94,7 @@ fun MainScreen(
                                 textAlign = TextAlign.Center
                             )
                         },
+
                         bottomBar = {
                             Text(
                                 text = "by L3on1kL\n" +
@@ -106,6 +108,7 @@ fun MainScreen(
                                 color = Color.Gray
                             )
                         }
+
                     ) {
                         Column(
                             modifier = Modifier
@@ -114,6 +117,7 @@ fun MainScreen(
                                     top = it.calculateTopPadding(),
                                     bottom = 0.dp,
                                     start = 15.dp,
+
                                     end = 15.dp
                                 ),
                             horizontalAlignment = Alignment.CenterHorizontally
@@ -129,6 +133,7 @@ fun MainScreen(
                                     text = stringResource(id = R.string.helper),
                                     fontSize = 18.sp,
                                 )
+
                                 Switch(
                                     checked = stateHelper,
                                     onCheckedChange = {
