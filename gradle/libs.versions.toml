@@ -9,7 +9,7 @@ google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [versions]
 
-agp = "8.7.1"
+agp = "8.6.1"
 ##⬆= "8.8.0-alpha01"
 ##⬆= "8.8.0-alpha02"
 ##⬆= "8.8.0-alpha03"
