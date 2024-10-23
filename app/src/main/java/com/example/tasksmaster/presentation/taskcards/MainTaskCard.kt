@@ -89,7 +89,7 @@ fun MainTaskCard(
             shape = RoundedCornerShape(0.dp)
         ) {
             var expanded by remember { mutableStateOf(false) }
-            Column() {
+            Column {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier

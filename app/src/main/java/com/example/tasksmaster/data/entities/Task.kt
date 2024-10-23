@@ -31,6 +31,9 @@ class Task {
         this.titleTask = taskTitle
         this.nameTask = taskName
         this.dateTask = taskDate
+        this.state = false
+        this.delete = false
+        this.color = Color.White.toArgb()
     }
 }
 

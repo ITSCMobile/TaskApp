@@ -66,7 +66,7 @@ fun MainScreen(
     onStateHelper: (Boolean) -> Unit
 ) {
 
-    val allTasks by viewModel.allTasks.observeAsState(listOf())
+    val allTasks by viewModel.allTasks.observeAsState(emptyList())
     val systemUiController = rememberSystemUiController()
 
     ModalNavigationDrawer(
