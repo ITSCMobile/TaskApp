@@ -13,12 +13,10 @@
         android:theme="@style/Theme.TasksMaster"
         tools:targetApi="31">
         <activity
-            android:screenOrientation="locked"
             android:name=".presentation.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true"
-            android:theme="@style/Theme.TasksMaster"
-            tools:ignore="DiscouragedApi">
+            android:theme="@style/Theme.TasksMaster">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
