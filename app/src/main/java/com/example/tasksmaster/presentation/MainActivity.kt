@@ -10,8 +10,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         taskDate = ""
                     )
 
-                    var stateHelper by remember {
+                    var stateHelper by rememberSaveable {
                         mutableStateOf(false)
                     }
 

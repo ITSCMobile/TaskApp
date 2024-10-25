@@ -23,7 +23,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,15 +55,15 @@ fun TextScreen(
     navController: NavHostController,
     stateHelper: Boolean
 ) {
-    var titleScreen by remember {
+    var titleScreen by rememberSaveable {
         mutableStateOf(task.titleTask)
     }
     val defaultTitleScreen = stringResource(id = R.string.newTaskText)
-    var textScreen by remember {
+    var textScreen by rememberSaveable {
         mutableStateOf(task.nameTask)
     }
 
-    var save by remember {
+    var save by rememberSaveable {
         mutableStateOf(true)
     }
 
@@ -182,7 +182,7 @@ fun TextScreen(
                 .padding(paddingValues)
                 .fillMaxWidth()
         ) {
-            var colorCategory by remember {
+            var colorCategory by rememberSaveable {
                 mutableIntStateOf(task.color)
             }
             Card(
