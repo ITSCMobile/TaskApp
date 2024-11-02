@@ -17,6 +17,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -263,7 +264,7 @@ fun TextScreen(
                     )
                 }
             }
-            BasicTextField(
+            TextField(
                 modifier = Modifier
                     .padding(10.dp)
                     .fillMaxSize(),
@@ -274,7 +275,10 @@ fun TextScreen(
                 onValueChange = { text ->
                     textScreen = text
                     save = false
-                }
+                },
+                placeholder = {
+                    Text("Click me to add your text!")
+                },
             )
         }
     }
